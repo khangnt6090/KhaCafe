@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập | Khà Cafe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+
+    <div class="login-container">
+        <h2 class="login-title">Đăng nhập Khà Cafe</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" placeholder="Nhập admin" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" placeholder="Nhập 123" required>
+            </div>
+            <p id="errorMessage" class="error-msg"></p>
+            <button type="submit" class="btn-primary btn-login">Đăng nhập</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Ngăn form tải lại trang
+            
+            // Lấy giá trị người dùng nhập
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            // Kiểm tra tài khoản tĩnh (Hard-coded)
+            if (user === 'admin' && pass === '123') {
+                // Chuyển hướng sang trang chủ nếu đúng
+                window.location.href = 'index.html';
+            } else {
+                // Hiển thị lỗi nếu sai
+                document.getElementById('errorMessage').innerText = 'Tên đăng nhập hoặc mật khẩu không đúng!';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khà Cafe | Mini Coffee Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">Khà Cafe</div>
+        <div class="search-box" id="searchBox">
+            <input id="searchInput" type="text" placeholder="Tìm kiếm nước uống..." autocomplete="off">
+            <button id="searchBtn">Tìm</button>
+            <div id="searchSuggestions" class="search-suggestions" aria-hidden="true"></div>
+        </div>
+        <div class="header-actions">
+            <span class="cart-icon">🛒 Giỏ hàng (0)</span>
+            <a href="login.html" class="btn-logout">Đăng xuất</a>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Nước uống</a></li>
+            <li><a href="#">Bánh ngọt</a></li>
+            <li><a href="#">Đặt hàng</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tận hưởng hương vị tuyệt vời của đồ uống</h1>
+            <p>Thưởng thức những ly nước uống ngon lành được chế biến từ nguyên liệu chất lượng cao.</p>
+            <button class="btn-primary">Order ngay</button>
+        </div>
+    </section>
+
+    <section class="promotion">
+        <h2>🔥 Ưu đãi cuối tuần - Giảm giá 36% cho tất cả các sản phẩm 🔥</h2>
+    </section>
+
+    <section class="featured-products">
+        <h2>Sản Phẩm Nổi Bật</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/CFSuaGau.jpg" alt="Cà Phê Sữa Gấu" class="product-img">
+                <h3>Cà Phê Sữa Gấu</h3>
+                <p class="price">32.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/CFSuaGao.jpg" alt="Cà Phê Sữa Gạo" class="product-img">
+                <h3>Cà Phê Sữa Gạo</h3>
+                <p class="price">25.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/CFSua.jpg" alt="Cà Phê Sữa Size Nhỏ" class="product-img">
+                <h3>Cà Phê Sữa Size Nhỏ</h3>
+                <p class="price">15.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/MatchaOatside.jpg" alt="Matcha Oatside" class="product-img">
+                <h3>Matcha Oatside</h3>
+                <p class="price">32.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/MatChaSuGau.jpg" alt="Matcha Sữa Gấu" class="product-img">
+                <h3>Matcha Sữa Gấu</h3>
+                <p class="price">32.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/SuaGaoBoDua.jpg" alt="Sữa Gạo Bơ Dừa" class="product-img">
+                <h3>Sữa Gạo Bơ Dừa</h3>
+                <p class="price">32.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/SuaGaoRang.jpg" alt="Sữa Gạo Rang" class="product-img">
+                <h3>Sữa Gạo Rang</h3>
+                <p class="price">22.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/CFDenNho.jpg" alt="Cà Phê Đen Size Nhỏ" class="product-img">
+                <h3>Cà Phê Đen Size Nhỏ</h3>
+                <p class="price">14.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/OLongSuaDua.jpg" alt="Ô Long Sữa Dừa" class="product-img">
+                <h3>Ô Long Sữa Dừa</h3>
+                <p class="price">25.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/TraOi.jpg" alt="Trà Ổi" class="product-img">
+                <h3>Trà Ổi</h3>
+                <p class="price">25.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/TraDua.jpg" alt="Trà Dứa" class="product-img">
+                <h3>Trà Dứa</h3>
+                <p class="price">25.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/TraVai.jpg" alt="Trà Vải" class="product-img">
+                <h3>Trà Vải</h3>
+                <p class="price">25.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/MatchaDua.jpg" alt="Matcha Dừa" class="product-img">
+                <h3>Matcha Dừa</h3>
+                <p class="price">25.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/CFMuoiNho.jpg" alt="Cafe Muối Nhỏ" class="product-img">
+                <h3>Cafe Muối Nhỏ</h3>
+                <p class="price">20.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/SGRTranChau.jpg" alt="Sữa Gạo Rang Trân Châu" class="product-img">
+                <h3>Sữa Gạo Rang Trân Châu</h3>
+                <p class="price">25.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/MatchaMini.jpg" alt="Matcha Mini" class="product-img">
+                <h3>Matcha Mini</h3>
+                <p class="price">20.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/BacXiuSuongSao.jpg" alt="Bạc Xỉu Sương Sáo" class="product-img">
+                <h3>Bạc Xỉu Sương Sáo</h3>
+                <p class="price">22.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/Matcha Latte.jpg" alt="Matcha Latte" class="product-img">
+                <h3>Matcha Latte</h3>
+                <p class="price">24.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/BacXiuLon.jpg" alt="Bạc Xỉu Size Lớn" class="product-img">
+                <h3>Bạc Xỉu Size Lớn</h3>
+                <p class="price">27.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <img src="images/BacXiuNho.jpg" alt="Bạc Xỉu Nhỏ" class="product-img">
+                <h3>Bạc Xỉu Nhỏ</h3>
+                <p class="price">18.000 VNĐ</p>
+                <button class="btn-cart">Thêm vào giỏ</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-col">
+            <h4>Về Khà Cafe</h4>
+            <p>Khà Cafe là thương hiệu chuyên cung cấp các loại nước uống chất lượng cao, mang đến cho khách hàng những trải nghiệm tuyệt vời.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Chăm sóc khách hàng</h4>
+            <ul>
+                <li><a href="#">Chính sách bảo vệ khách hàng</a></li>
+                <li><a href="#">Hướng dẫn order</a></li>
+                <li><a href="#">Về Chúng Tôi</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Liên hệ</h4>
+            <p>Email: khacafetea@gmail.com</p>
+            <p>Điện thoại: 0999 999 999</p>
+            <p>Địa chỉ: N3 Điện Biên Phủ, Phường 25, Quận Bình Thạnh, TP. Hồ Chí Minh</p>
+        </div>
+    </footer>
+
+    <!-- Cart panel -->
+    <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+        <div class="cart-header">
+            <h3>Giỏ hàng</h3>
+            <button id="closeCart" class="btn-close">✕</button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-summary">
+            <div class="cart-total">Tổng: <span id="cartTotal">0 VNĐ</span></div>
+        </div>
+
+        <form id="checkoutForm" class="checkout-form">
+            <h4>Thông tin giao hàng</h4>
+            <input id="custName" type="text" placeholder="Họ và tên" required>
+            <input id="custPhone" type="tel" placeholder="Số điện thoại" required>
+            <input id="custAddress" type="text" placeholder="Địa chỉ giao hàng" required>
+            <textarea id="custNote" placeholder="Ghi chú (không bắt buộc)" rows="2"></textarea>
+            <button type="submit" class="btn-primary">Thanh toán</button>
+        </form>
+
+        <div id="orderMsg" class="order-msg"></div>
+    </aside>
+
+    <script src="app.js"></script>
+    </body>
+    </html>
