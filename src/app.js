@@ -1,6 +1,27 @@
 // Simple cart and checkout logic using localStorage
 (function() {
     const CART_KEY = 'kha_cart_v1';
+    const USER_KEY = 'kha_users_v1';
+    const CUR_USER_KEY = 'kha_current_user';
+
+    function getUsers(){ try { return JSON.parse(localStorage.getItem(USER_KEY) || '[]'); } catch(e){ return []; } }
+    function saveUsers(u){ localStorage.setItem(USER_KEY, JSON.stringify(u)); }
+    function getCurrentUser(){ try { return JSON.parse(localStorage.getItem(CUR_USER_KEY) || 'null'); } catch(e){ return null; } }
+    function setCurrentUser(username){ localStorage.setItem(CUR_USER_KEY, JSON.stringify({ username })); }
+    function clearCurrentUser(){ localStorage.removeItem(CUR_USER_KEY); }
+
+    function showUserInHeader(){
+        const cur = getCurrentUser();
+        const logoutLink = document.querySelector('.btn-logout');
+        if (!logoutLink) return;
+        if (cur && cur.username) {
+            logoutLink.innerText = 'Đăng xuất (' + cur.username + ')';
+            logoutLink.addEventListener('click', function(e){ e.preventDefault(); clearCurrentUser(); window.location.href = 'login.html'; });
+        } else {
+            logoutLink.innerText = 'Đăng nhập';
+            logoutLink.setAttribute('href','login.html');
+        }
+    }
 
     function parsePrice(text) {
         if (!text) return 0;
@@ -279,6 +300,6 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', ()=>{ attachProductButtons(); setupCartPanel(); setupCheckout(); updateCartCount(); updateCartUI(); setupSearch(); });
+    document.addEventListener('DOMContentLoaded', ()=>{ attachProductButtons(); setupCartPanel(); setupCheckout(); updateCartCount(); updateCartUI(); setupSearch(); showUserInHeader(); });
 
 })();

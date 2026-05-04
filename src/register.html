@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký | Khà Cafe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+
+    <div class="login-container">
+        <h2 class="login-title">Tạo tài khoản Khà Cafe</h2>
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" placeholder="Nhập tên đăng nhập" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm">Xác nhận mật khẩu</label>
+                <input type="password" id="confirm" placeholder="Nhập lại mật khẩu" required>
+            </div>
+            <p id="regMessage" class="error-msg"></p>
+            <button type="submit" class="btn-primary btn-login">Đăng ký</button>
+            <p class="small-link">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+        </form>
+    </div>
+
+    <script>
+        // Lưu người dùng demo trong localStorage (không dùng server)
+        function getUsers(){ try { return JSON.parse(localStorage.getItem('kha_users_v1')||'[]'); } catch(e){ return []; } }
+        function saveUsers(users){ localStorage.setItem('kha_users_v1', JSON.stringify(users)); }
+        function setCurrentUser(username){ localStorage.setItem('kha_current_user', JSON.stringify({ username })); }
+
+        document.getElementById('registerForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            const u = document.getElementById('username').value.trim();
+            const p = document.getElementById('password').value;
+            const c = document.getElementById('confirm').value;
+            const msgEl = document.getElementById('regMessage');
+            msgEl.innerText = '';
+            if (!u || !p) { msgEl.innerText = 'Vui lòng nhập tên và mật khẩu.'; return; }
+            if (p !== c) { msgEl.innerText = 'Mật khẩu xác nhận không khớp.'; return; }
+            const users = getUsers();
+            if (users.find(x=>x.username === u)) { msgEl.innerText = 'Tên đăng nhập đã tồn tại.'; return; }
+            users.push({ username: u, password: p });
+            saveUsers(users);
+            setCurrentUser(u);
+            // Chuyển về trang chính
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

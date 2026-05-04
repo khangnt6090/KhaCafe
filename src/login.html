@@ -21,26 +21,32 @@
             </div>
             <p id="errorMessage" class="error-msg"></p>
             <button type="submit" class="btn-primary btn-login">Đăng nhập</button>
+                <p class="small-link">Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
         </form>
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Ngăn form tải lại trang
-            
-            // Lấy giá trị người dùng nhập
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
-
-            // Kiểm tra tài khoản tĩnh (Hard-coded)
-            if (user === 'admin' && pass === '123') {
-                // Chuyển hướng sang trang chủ nếu đúng
-                window.location.href = 'index.html';
-            } else {
-                // Hiển thị lỗi nếu sai
-                document.getElementById('errorMessage').innerText = 'Tên đăng nhập hoặc mật khẩu không đúng!';
+            // Quản lý users trong localStorage (demo, không mã hóa mật khẩu)
+            function getUsers(){ try { return JSON.parse(localStorage.getItem('kha_users_v1')||'[]'); } catch(e){ return []; } }
+            function findUser(username, password){
+                const users = getUsers();
+                return users.find(u=>u.username === username && u.password === password);
             }
-        });
+
+            function setCurrentUser(username){ localStorage.setItem('kha_current_user', JSON.stringify({ username })); }
+
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const user = document.getElementById('username').value.trim();
+                const pass = document.getElementById('password').value;
+                // Kiểm tra user đã đăng ký
+                if (findUser(user, pass) || (user === 'admin' && pass === '123')) {
+                    setCurrentUser(user);
+                    window.location.href = 'index.html';
+                } else {
+                    document.getElementById('errorMessage').innerText = 'Tên đăng nhập hoặc mật khẩu không đúng!';
+                }
+            });
     </script>
 </body>
 </html>

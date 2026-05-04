@@ -352,3 +352,7 @@ body {
     margin-bottom: 10px;
     min-height: 20px;
 }
+
+.small-link { text-align: center; margin-top: 8px; font-size: 14px }
+.small-link a { color: #854d04; font-weight:600; text-decoration:none }
+.small-link a:hover { text-decoration:underline }
